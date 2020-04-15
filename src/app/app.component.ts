@@ -22,11 +22,14 @@ export class AppComponent  {
     this.markupPola = "";
     if(this.data % 2 == 1){
       var maxCount = 0;
+      var minCount = 0;
       if(a > b){
         maxCount = a;
+        minCount = b;
       }
       else{
         maxCount = b;
+        minCount = a;
       }
 
       var printCheck = true;
@@ -34,25 +37,15 @@ export class AppComponent  {
       var spaceCount = 0;
       for(var i = 0; i < maxCount; i++){
         var polaBaris = "";
-        if(kCount + 1 <= a && printCheck){
+        if(kCount + 1 <= minCount && printCheck){
           kCount += 1;
         }
         else{
           kCount = 0;
           printCheck = false;
         }
-        // [spasi]
-        if(a > b){
-          var starCount = 0;
-          if (b - i > 0){
-            starCount = b - i;
-          }
-          for (var j = 0; j < maxCount - starCount - kCount; j++){
-            polaBaris += '&nbsp';
-          }
-        }
         // *
-        for(var j = 0; j < b - i; j++){
+        for(var j = 0; j < maxCount - i; j++){
           polaBaris += '*';
         }
         // o
