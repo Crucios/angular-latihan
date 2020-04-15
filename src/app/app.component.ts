@@ -42,7 +42,7 @@ export class AppComponent  {
         }
         // *
         for(var j = 0; j < b - i; j++){
-          polaBaris += '*'
+          polaBaris += '*';
         }
         // o
         for (var j = 0; j < kCount; j++){
