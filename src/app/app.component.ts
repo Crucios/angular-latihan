@@ -31,7 +31,8 @@ export class AppComponent  {
 
       var printCheck = true;
       var kCount = 0;
-      for(var i = maxCount; i > 0; i--){
+      var spaceCount = 0;
+      for(var i = 0; i < maxCount; i++){
         var polaBaris = "";
         if(kCount + 1 <= a && printCheck){
           kCount += 1;
@@ -40,14 +41,25 @@ export class AppComponent  {
           kCount = 0;
           printCheck = false;
         }
+        // [spasi]
+        if(a > b){
+          var starCount = 0;
+          if (b - i > 0){
+            starCount = b - i;
+          }
+          for (var j = 0; j < maxCount - starCount - kCount; j++){
+            polaBaris += '&nbsp';
+          }
+        }
         // *
         for(var j = 0; j < b - i; j++){
           polaBaris += '*';
         }
         // o
         for (var j = 0; j < kCount; j++){
-          this.markupPola += 'o';
+          polaBaris += 'o';
         }
+        this.markupPola += polaBaris + "<br></br>";
       }
     }
     // Genap
@@ -67,5 +79,6 @@ export class AppComponent  {
     document.getElementById("aText").value = "";
     document.getElementById("bText").value = "";
     this.output = "";
+    this.polaOutput = "";
   }
 }
