@@ -1,4 +1,13 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
+<p>input</p>
+<input [(ngModel)]="a" id="aText" type="text"/>^
+<input [(ngModel)]="b" id="bText" type="text"/>
+<br><br/>
+<button (click)="powerCalculate(a,b)">Click here</button>
+<br><br/>
+<button (click)="clearText()">Clear</button>
+
+<p>Hasil</p>
+<p *ngIf="a != NULL && b != NULL">
+  {{output}}
 </p>
+
