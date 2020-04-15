@@ -31,7 +31,7 @@ export class AppComponent  {
 
       var printCheck = true;
       var kCount = 0;
-      for(var i = maxCount; i > 0; i++){
+      for(var i = maxCount; i > 0; i--){
         var polaBaris = "";
         if(kCount + 1 <= a && printCheck){
           kCount += 1
