@@ -9,17 +9,46 @@ export class AppComponent  {
   name = 'Angular';
   data = 0;
   output = "";
-  markupPola = ""
+  markupPola = "";
+  polaOutput = "";
 
   powerCalculate(a,b){
     this.output = "";
+    this.polaOutput = "";
     this.data = Math.pow(parseInt(a), parseInt(b));
     this.output += this.data;
 
     // Ganjil
     this.markupPola = "";
     if(this.data % 2 == 1){
-      
+      var maxCount = 0;
+      if(a > b){
+        maxCount = a;
+      }
+      else{
+        maxCount = b;
+      }
+
+      var printCheck = true;
+      var kCount = 0;
+      for(var i = maxCount; i > 0; i++){
+        var polaBaris = "";
+        if(kCount + 1 <= a && printCheck){
+          kCount += 1
+        }
+        else{
+          kCount = 0;
+          printCheck = false;
+        }
+        // *
+        for(var j = 0; j < b - i; j++){
+          polaBaris += '*'
+        }
+        // o
+        for (var j = 0; j < kCount; j++){
+          this.markupPola += 'o';
+        }
+      }
     }
     // Genap
     else if (this.data % 2 == 0){
@@ -31,6 +60,7 @@ export class AppComponent  {
         this.markupPola += polaBaris + "<br></br>";
       }
     }
+    this.polaOutput = this.markupPola;
   }
 
   clearText(){
